@@ -17,12 +17,10 @@ interface IUsername {
   
 export interface IPicture {
   id: string;
-  description: string | null;
-  alt_description: string | null;
-  urls: {
-    regular: string;
-    small: string;
-  };
+  urls: ISize;
+  alt_description: string;
+  description: string;
   likes: number;
+  user: IUsername;
 }
   
