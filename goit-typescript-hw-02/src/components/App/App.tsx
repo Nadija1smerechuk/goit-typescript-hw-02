@@ -30,12 +30,12 @@ export default function App() {
   const fetchData = async (): Promise<void> => {
     setIsLoading(true);
     try {
-      const {results, total, total_pages} = await getPhotos(query, page);
+      const {results, total_pages} = await getPhotos(query, page);
       if (!results.length) {
         return setIsEmpty(true);
       }
       setImages(prevImages => [...prevImages, ...results]);
-      setIsVisible(page < Math.ceil(total / total_pages));
+      setIsVisible(page < total_pages);
 
     } catch (error) {
       setError(false);
